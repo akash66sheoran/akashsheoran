@@ -7,13 +7,88 @@
     <title>Akash - Portfolio</title>
     <link rel="stylesheet" href="https://stackpath.bootstrapcdn.com/bootstrap/4.5.2/css/bootstrap.min.css">
     <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/font-awesome@4.7.0/css/font-awesome.css">
+    <style>
+        #skills .card {
+            border-radius: 15px;
+            transition: transform 0.3s ease, box-shadow 0.3s ease;
+        }
+
+        #skills .card:hover {
+            transform: translateY(-5px);
+            box-shadow: 0 10px 25px rgba(0, 0, 0, 0.15);
+        }
+
+        #skills h2 {
+            font-weight: 700;
+            margin-bottom: 2rem;
+        }
+
+        #skills .card-title {
+            color: #0d6efd;
+            font-weight: 600;
+        }
+
+        .timeline {
+            position: relative;
+            margin: 2rem 0;
+            padding-left: 20px;
+            border-left: 3px solid #0d6efd;
+        }
+
+        .timeline-item {
+            margin-bottom: 2rem;
+            position: relative;
+        }
+
+        .timeline-item::before {
+            content: "";
+            position: absolute;
+            left: -11px;
+            top: 5px;
+            width: 16px;
+            height: 16px;
+            background: #0d6efd;
+            border-radius: 50%;
+        }
+
+        .timeline-content {
+            background: #fff;
+            padding: 18px 22px;
+            border-radius: 12px;
+            box-shadow: 0 6px 18px rgba(0, 0, 0, 0.08);
+        }
+
+        .timeline-content h5 {
+            color: #0d6efd;
+            font-weight: 600;
+        }
+
+        .timeline-content h6 {
+            font-size: 0.9rem;
+        }
+
+        .timeline-date {
+            font-size: 0.9rem;
+            color: #6c757d;
+            font-weight: 500;
+        }
+
+        .timeline-content ul {
+            padding-left: 20px;
+            margin-top: 10px;
+        }
+
+        .timeline-content li {
+            margin-bottom: 8px;
+        }
+    </style>
 </head>
 
 <body>
     <header>
         <nav class="navbar navbar-expand-lg navbar-light bg-light">
             <div class="container">
-                <a class="navbar-brand" href="#">Akash</a>
+                <a class="navbar-brand" href="#">Akash Sheoran</a>
                 <button class="navbar-toggler" type="button" data-toggle="collapse" data-target="#navbarNav"
                     aria-controls="navbarNav" aria-expanded="false" aria-label="Toggle navigation">
                     <span class="navbar-toggler-icon"></span>
@@ -25,6 +100,12 @@
                         </li>
                         <li class="nav-item">
                             <a class="nav-link" href="#profiles">Profiles</a>
+                        </li>
+                        <li class="nav-item">
+                            <a class="nav-link" href="#skills">Skills</a>
+                        </li>
+                        <li class="nav-item">
+                            <a class="nav-link" href="#experience">Experience</a>
                         </li>
                         <li class="nav-item">
                             <a class="nav-link" href="#portfolio">Projects</a>
@@ -42,22 +123,172 @@
         <div class="container">
             <img src="images/my-photo.png" alt="Your profile photo" class="rounded-circle" , width=150, height=150>
             <h1 class="my-3">Welcome to My Portfolio</h1>
-            <p class="lead">A DevOps passionate who bridges the gap between development and IT operations to streamline
-                and automate software delivery.</p>
+            <p class="lead">DevOps Engineer who bridges the gap between development and IT operations to streamline and
+                automate software delivery.</p>
         </div>
     </section>
 
     <section id="about" class="py-5">
         <div class="container">
             <h2>About Me</h2>
-            <p>DevOps Engineer enthusiast with a strong passion for automating and streamlining IT processes. Skilled in
-                implementing robust CI/CD pipelines, orchestrating system administration tasks, architecting
-                infrastructure
-                provisioning, configuration and monitoring. Proven ability to adapt in both independent and
-                collaborative
-                environments with cross-functional teams to identify and resolve issues. Demonstrated success in
-                reducing
-                deployment times by 50%, enhancing system reliability, and boosting team productivity by 25%.</p>
+            <p>DevOps Engineer with 2+ years of experience
+                in AWS, Kubernetes, and Terraform,
+                specializing in CI/CD and GitOps automation.
+                Built and managed production-grade Amazon
+                EKS infrastructure, automated deployments
+                using Azure DevOps and ArgoCD, and
+                implemented monitoring and logging with
+                Prometheus, Grafana, and EFK. Improved
+                release frequency by 3×, reduced
+                infrastructure provisioning time by 80%, and
+                enabled faster incident resolution through
+                centralized monitoring and logging.</p>
+        </div>
+    </section>
+
+    <section id="skills" class="py-5 bg-light">
+        <div class="container">
+            <h2 class="text-center mb-4">Technical Skills</h2>
+            <div class="row g-4">
+                <div class="col-md-6 col-lg-4">
+                    <div class="card h-100 shadow-sm border-0">
+                        <div class="card-body">
+                            <h5 class="card-title">Cloud</h5>
+                            <p class="card-text">AWS (EKS, EC2, S3, IAM, VPC, ALB, Route53, EFS, EBS, etc.)</p>
+                        </div>
+                    </div>
+                </div>
+
+                <div class="col-md-6 col-lg-4">
+                    <div class="card h-100 shadow-sm border-0">
+                        <div class="card-body">
+                            <h5 class="card-title">Containers &amp; Orchestration</h5>
+                            <p class="card-text">Docker, Kubernetes</p>
+                        </div>
+                    </div>
+                </div>
+
+                <div class="col-md-6 col-lg-4">
+                    <div class="card h-100 shadow-sm border-0">
+                        <div class="card-body">
+                            <h5 class="card-title">Infrastructure as Code</h5>
+                            <p class="card-text">Terraform</p>
+                        </div>
+                    </div>
+                </div>
+
+                <div class="col-md-6 col-lg-4">
+                    <div class="card h-100 shadow-sm border-0">
+                        <div class="card-body">
+                            <h5 class="card-title">CI/CD</h5>
+                            <p class="card-text">Azure DevOps Pipelines</p>
+                        </div>
+                    </div>
+                </div>
+
+                <div class="col-md-6 col-lg-4">
+                    <div class="card h-100 shadow-sm border-0">
+                        <div class="card-body">
+                            <h5 class="card-title">GitOps</h5>
+                            <p class="card-text">ArgoCD, Git, GitHub</p>
+                        </div>
+                    </div>
+                </div>
+
+                <div class="col-md-6 col-lg-4">
+                    <div class="card h-100 shadow-sm border-0">
+                        <div class="card-body">
+                            <h5 class="card-title">Monitoring</h5>
+                            <p class="card-text">Prometheus, Grafana, CloudWatch</p>
+                        </div>
+                    </div>
+                </div>
+
+                <div class="col-md-6 col-lg-4">
+                    <div class="card h-100 shadow-sm border-0">
+                        <div class="card-body">
+                            <h5 class="card-title">Logging</h5>
+                            <p class="card-text">EFK Stack (Elasticsearch, Fluent Bit, Kibana)</p>
+                        </div>
+                    </div>
+                </div>
+
+                <div class="col-md-6 col-lg-4">
+                    <div class="card h-100 shadow-sm border-0">
+                        <div class="card-body">
+                            <h5 class="card-title">Configuration Management</h5>
+                            <p class="card-text">Ansible</p>
+                        </div>
+                    </div>
+                </div>
+
+                <div class="col-md-6 col-lg-4">
+                    <div class="card h-100 shadow-sm border-0">
+                        <div class="card-body">
+                            <h5 class="card-title">Scripting</h5>
+                            <p class="card-text">Bash, Python</p>
+                        </div>
+                    </div>
+                </div>
+
+                <div class="col-md-6 col-lg-4">
+                    <div class="card h-100 shadow-sm border-0">
+                        <div class="card-body">
+                            <h5 class="card-title">Package Management</h5>
+                            <p class="card-text">Helm</p>
+                        </div>
+                    </div>
+                </div>
+
+                <div class="col-md-6 col-lg-4">
+                    <div class="card h-100 shadow-sm border-0">
+                        <div class="card-body">
+                            <h5 class="card-title">Operating System</h5>
+                            <p class="card-text">Linux</p>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <section id="experience" class="py-5">
+        <div class="container">
+            <h2 class="text-center mb-5">Work Experience</h2>
+
+            <div class="timeline">
+
+                <div class="timeline-item">
+                    <div class="timeline-content">
+
+                        <div class="d-flex justify-content-between align-items-center mb-2">
+                            <h5 class="mb-0">DevOps Engineer</h5>
+                            <span class="timeline-date">Dec 2023 – Present</span>
+                        </div>
+
+                        <h6 class="text-muted">Amiti Software Technologies</h6>
+
+                        <ul>
+                            <li>Managed AWS infrastructure (VPC, EC2, IAM, S3, EKS) using Terraform, reducing
+                                environment setup time by ~80%.</li>
+                            <li>Provisioned and maintained Kubernetes (EKS) clusters across multiple AZs for production
+                                and staging.</li>
+                            <li>Deployed microservices using Helm charts, enabling standardized deployments and quick
+                                rollbacks.</li>
+                            <li>Built CI/CD pipelines using Azure DevOps for automated Docker builds and Kubernetes
+                                deployments.</li>
+                            <li>Implemented GitOps using ArgoCD with Helm for version-controlled deployments.</li>
+                            <li>Set up monitoring & logging using Prometheus, Grafana, and EFK stack with alerting.</li>
+                            <li>Executed production maintenance (patching, upgrades, rollback) with minimal downtime.
+                            </li>
+                            <li>Migrated workloads from VMware Cloud (VMC) to AWS EKS with containerization and CI/CD.
+                            </li>
+                        </ul>
+
+                    </div>
+                </div>
+
+            </div>
         </div>
     </section>
 
@@ -73,12 +304,6 @@
                     <i class="fa fa-linkedin fa-lg"></i> <a href="https://www.linkedin.com/in/akash-sheoran"
                         target="_blank">LinkedIn</a>
                 </li>
-                <li class="list-item mb-2"><i class="fa fa-code fa-lg"></i> <a href="https://leetcode.com/AkashSheoran/"
-                        target="_blank">Leetcode</a>
-                </li>
-                <li class="list-item mb-2"><i class="fa fa-code fa-lg"></i> <a
-                        href="https://auth.geeksforgeeks.org/user/akash66sheoran" target="_blank">GeeksforGeeks</a>
-                </li>
             </ul>
         </div>
     </section>
@@ -87,19 +312,6 @@
         <div class="container">
             <h2 class="mb-4">Projects</h2>
             <div class="row">
-                <div class="col-md-4">
-                    <div class="card mb-4">
-                        <img src="images/portfolio.png" class="card-img-top" alt="Project 1">
-                        <div class="card-body">
-                            <h5 class="card-title">CI/CD Pipeline for a Portfolio Web Application</h5>
-                            <p class="card-text">Developed and implemented a CI/CD pipeline for a portfolio web
-                                application using Jenkins, GitHub, AWS, and Docker. The pipeline
-                                automates the build and deployment process for the web application,
-                                ensuring that new changes are released to production quickly and
-                                reliably.</p>
-                        </div>
-                    </div>
-                </div>
                 <div class="col-md-4">
                     <div class="card mb-4">
                         <img src="images/terraform-eks.png" class="card-img-top" alt="Project 2">
@@ -129,10 +341,12 @@
                     <div class="card mb-4">
                         <img src="images/end-to-end-devops-project.png" class="card-img-top" alt="Project 2">
                         <div class="card-body">
-                            <h5 class="card-title">End to End Devops Project</h5>
+                            <h5 class="card-title">Production-Ready 3-Tier Application on AWS EKS</h5>
                             <p class="card-text">End-to-end DevOps project deploying a three-tier React, Node.js, and
-                                MongoDB application on AWS EKS. Features Terraform-based IaC, Jenkins CI/CD pipelines,
-                                ArgoCD GitOps, Helm, and monitoring with Prometheus and Grafana.</p>
+                                MongoDB application on AWS EKS. Features Terraform-based IaC, Azure devops CI/CD
+                                pipelines,
+                                ArgoCD GitOps, Helm package manager, monitoring with Prometheus and Grafana, and
+                                observability with EFK stack</p>
                         </div>
                     </div>
                 </div>
