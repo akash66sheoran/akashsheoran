@@ -2,249 +2,1020 @@
 <html lang="en">
 
 <head>
-    <meta charset="UTF-8">
-    <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Akash - Portfolio</title>
-    <link rel="stylesheet" href="https://stackpath.bootstrapcdn.com/bootstrap/4.5.2/css/bootstrap.min.css">
-    <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/font-awesome@4.7.0/css/font-awesome.css">
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>Akash Sheoran | DevOps Engineer</title>
+    <meta name="description"
+        content="Akash Sheoran - DevOps Engineer with 2+ years of experience in AWS, Kubernetes, Terraform, CI/CD, GitOps, monitoring, and cloud infrastructure." />
+
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600;700;800&display=swap" rel="stylesheet">
+    <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.3/dist/css/bootstrap.min.css">
+    <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/bootstrap-icons@1.11.3/font/bootstrap-icons.min.css">
+
     <style>
-        #skills .card {
-            border-radius: 15px;
-            transition: transform 0.3s ease, box-shadow 0.3s ease;
+        :root {
+            --bg: #07111f;
+            --bg-soft: #0d1b2f;
+            --card: rgba(255, 255, 255, 0.06);
+            --card-strong: rgba(255, 255, 255, 0.09);
+            --border: rgba(255, 255, 255, 0.12);
+            --text: #e8eef8;
+            --muted: #a7b7d6;
+            --primary: #56ccf2;
+            --primary-2: #2f80ed;
+            --accent: #7c4dff;
+            --success: #1fd1a5;
+            --warning: #ffb547;
+            --shadow: 0 20px 60px rgba(0, 0, 0, 0.28);
+            --radius: 24px;
+            --radius-sm: 18px;
         }
 
-        #skills .card:hover {
-            transform: translateY(-5px);
-            box-shadow: 0 10px 25px rgba(0, 0, 0, 0.15);
+        * {
+            box-sizing: border-box;
         }
 
-        #skills h2 {
+        html {
+            scroll-behavior: smooth;
+        }
+
+        body {
+            margin: 0;
+            font-family: 'Inter', sans-serif;
+            background:
+                radial-gradient(circle at top left, rgba(47, 128, 237, 0.20), transparent 32%),
+                radial-gradient(circle at top right, rgba(124, 77, 255, 0.18), transparent 28%),
+                linear-gradient(180deg, #07111f 0%, #081426 42%, #09182b 100%);
+            color: var(--text);
+            overflow-x: hidden;
+        }
+
+        a {
+            text-decoration: none;
+        }
+
+        img {
+            max-width: 100%;
+            display: block;
+        }
+
+        .section-padding {
+            padding: 100px 0;
+        }
+
+        .section-title {
+            font-size: clamp(2rem, 4vw, 3rem);
+            font-weight: 800;
+            margin-bottom: 14px;
+            letter-spacing: -0.04em;
+        }
+
+        .section-subtitle {
+            color: var(--muted);
+            max-width: 720px;
+            margin: 0 auto 50px;
+            font-size: 1.05rem;
+            line-height: 1.8;
+        }
+
+        .glass {
+            background: var(--card);
+            border: 1px solid var(--border);
+            backdrop-filter: blur(18px);
+            -webkit-backdrop-filter: blur(18px);
+            box-shadow: var(--shadow);
+        }
+
+        .navbar {
+            background: rgba(7, 17, 31, 0.55);
+            backdrop-filter: blur(16px);
+            -webkit-backdrop-filter: blur(16px);
+            border-bottom: 1px solid rgba(255, 255, 255, 0.06);
+            transition: 0.3s ease;
+        }
+
+        .navbar.scrolled {
+            background: rgba(7, 17, 31, 0.90);
+            box-shadow: 0 14px 40px rgba(0, 0, 0, 0.25);
+        }
+
+        .navbar-brand {
+            color: white !important;
+            font-weight: 800;
+            letter-spacing: -0.04em;
+            font-size: 1.25rem;
+        }
+
+        .nav-link {
+            color: rgba(255, 255, 255, 0.82) !important;
+            font-weight: 500;
+            position: relative;
+        }
+
+        .nav-link:hover,
+        .nav-link.active {
+            color: white !important;
+        }
+
+        .nav-link::after {
+            content: "";
+            position: absolute;
+            left: 0.5rem;
+            right: 0.5rem;
+            bottom: 0.15rem;
+            height: 2px;
+            border-radius: 10px;
+            background: linear-gradient(90deg, var(--primary), var(--accent));
+            transform: scaleX(0);
+            transform-origin: left;
+            transition: transform 0.3s ease;
+        }
+
+        .nav-link:hover::after,
+        .nav-link.active::after {
+            transform: scaleX(1);
+        }
+
+        .hero {
+            position: relative;
+            min-height: 100vh;
+            display: flex;
+            align-items: center;
+            padding-top: 90px;
+        }
+
+        .blob,
+        .grid-overlay {
+            pointer-events: none;
+            position: absolute;
+            inset: 0;
+        }
+
+        .grid-overlay {
+            background-image:
+                linear-gradient(rgba(255, 255, 255, 0.03) 1px, transparent 1px),
+                linear-gradient(90deg, rgba(255, 255, 255, 0.03) 1px, transparent 1px);
+            background-size: 36px 36px;
+            mask-image: linear-gradient(to bottom, rgba(0, 0, 0, 0.55), transparent 92%);
+        }
+
+        .blob::before,
+        .blob::after {
+            content: "";
+            position: absolute;
+            border-radius: 999px;
+            filter: blur(70px);
+            opacity: 0.45;
+            animation: floatBlob 7s ease-in-out infinite alternate;
+        }
+
+        .blob::before {
+            width: 280px;
+            height: 280px;
+            top: 100px;
+            right: 10%;
+            background: rgba(86, 204, 242, 0.25);
+        }
+
+        .blob::after {
+            width: 240px;
+            height: 240px;
+            left: 6%;
+            bottom: 12%;
+            background: rgba(124, 77, 255, 0.22);
+            animation-delay: 1s;
+        }
+
+        @keyframes floatBlob {
+            from {
+                transform: translateY(-10px) translateX(0px) scale(1);
+            }
+
+            to {
+                transform: translateY(18px) translateX(14px) scale(1.06);
+            }
+        }
+
+        .hero-badge {
+            display: inline-flex;
+            align-items: center;
+            gap: 10px;
+            padding: 10px 16px;
+            border-radius: 999px;
+            color: #dff6ff;
+            background: rgba(255, 255, 255, 0.06);
+            border: 1px solid rgba(255, 255, 255, 0.10);
+            font-weight: 600;
+            font-size: 0.95rem;
+            margin-bottom: 24px;
+        }
+
+        .hero h1 {
+            font-size: clamp(2.7rem, 7vw, 5.6rem);
+            line-height: 1.02;
+            font-weight: 800;
+            letter-spacing: -0.06em;
+            margin-bottom: 20px;
+        }
+
+        .gradient-text {
+            background: linear-gradient(90deg, #ffffff 0%, #8fdcff 45%, #9d7bff 100%);
+            -webkit-background-clip: text;
+            background-clip: text;
+            color: transparent;
+        }
+
+        .hero p {
+            color: var(--muted);
+            font-size: 1.1rem;
+            line-height: 1.9;
+            max-width: 700px;
+            margin-bottom: 28px;
+        }
+
+        .cta-group {
+            display: flex;
+            flex-wrap: wrap;
+            gap: 14px;
+            margin-bottom: 26px;
+        }
+
+        .btn-custom,
+        .btn-outline-custom {
+            border-radius: 14px;
+            padding: 14px 22px;
             font-weight: 700;
-            margin-bottom: 2rem;
+            transition: 0.3s ease;
+            display: inline-flex;
+            align-items: center;
+            gap: 10px;
         }
 
-        #skills .card-title {
-            color: #0d6efd;
+        .btn-custom {
+            color: #06111f;
+            background: linear-gradient(135deg, var(--primary), #8ce3ff);
+            border: none;
+            box-shadow: 0 12px 26px rgba(86, 204, 242, 0.25);
+        }
+
+        .btn-custom:hover {
+            transform: translateY(-2px);
+            color: #06111f;
+            box-shadow: 0 18px 34px rgba(86, 204, 242, 0.30);
+        }
+
+        .btn-outline-custom {
+            color: #fff;
+            border: 1px solid rgba(255, 255, 255, 0.14);
+            background: rgba(255, 255, 255, 0.04);
+        }
+
+        .btn-outline-custom:hover {
+            color: #fff;
+            transform: translateY(-2px);
+            background: rgba(255, 255, 255, 0.08);
+            border-color: rgba(255, 255, 255, 0.24);
+        }
+
+        .quick-tags {
+            display: flex;
+            flex-wrap: wrap;
+            gap: 10px;
+            margin-top: 18px;
+        }
+
+        .tag {
+            padding: 10px 14px;
+            border-radius: 999px;
+            background: rgba(255, 255, 255, 0.05);
+            color: #dce7ff;
+            border: 1px solid rgba(255, 255, 255, 0.08);
+            font-size: 0.92rem;
             font-weight: 600;
         }
 
-        .timeline {
+        .hero-card {
+            border-radius: 30px;
+            padding: 24px;
             position: relative;
-            margin: 2rem 0;
-            padding-left: 20px;
-            border-left: 3px solid #0d6efd;
+            overflow: hidden;
+        }
+
+        .hero-photo {
+            width: 130px;
+            height: 130px;
+            border-radius: 24px;
+            object-fit: cover;
+            border: 2px solid rgba(255, 255, 255, 0.18);
+            margin-bottom: 20px;
+        }
+
+        .floating-card {
+            border-radius: 22px;
+            padding: 18px;
+            background: rgba(255, 255, 255, 0.06);
+            border: 1px solid rgba(255, 255, 255, 0.10);
+            margin-top: 16px;
+            transition: transform 0.35s ease, border-color 0.35s ease;
+        }
+
+        .floating-card:hover {
+            transform: translateY(-6px);
+            border-color: rgba(143, 220, 255, 0.4);
+        }
+
+        .mini-label {
+            font-size: 0.84rem;
+            color: #b2c8ea;
+            text-transform: uppercase;
+            letter-spacing: 0.12em;
+            margin-bottom: 8px;
+        }
+
+        .hero-metrics {
+            display: grid;
+            grid-template-columns: repeat(3, 1fr);
+            gap: 14px;
+            margin-top: 22px;
+        }
+
+        .metric {
+            border-radius: 18px;
+            padding: 18px 14px;
+            background: rgba(255, 255, 255, 0.04);
+            border: 1px solid rgba(255, 255, 255, 0.08);
+            text-align: center;
+        }
+
+        .metric-number {
+            font-size: 1.55rem;
+            font-weight: 800;
+            margin-bottom: 6px;
+        }
+
+        .metric-label {
+            color: var(--muted);
+            font-size: 0.92rem;
+        }
+
+        .highlight-grid {
+            display: grid;
+            grid-template-columns: repeat(4, 1fr);
+            gap: 18px;
+            margin-top: 28px;
+        }
+
+        .highlight-card {
+            padding: 22px;
+            border-radius: 22px;
+            background: rgba(255, 255, 255, 0.05);
+            border: 1px solid rgba(255, 255, 255, 0.10);
+            transition: transform 0.3s ease, border-color 0.3s ease;
+            height: 100%;
+        }
+
+        .highlight-card:hover,
+        .skill-card:hover,
+        .project-card:hover,
+        .profile-card:hover,
+        .contact-card:hover,
+        .timeline-card:hover {
+            transform: translateY(-8px);
+            border-color: rgba(143, 220, 255, 0.36);
+        }
+
+        .highlight-card i,
+        .skill-icon,
+        .profile-card i,
+        .contact-icon,
+        .project-icon {
+            font-size: 1.35rem;
+            width: 52px;
+            height: 52px;
+            display: inline-flex;
+            align-items: center;
+            justify-content: center;
+            border-radius: 16px;
+            background: linear-gradient(135deg, rgba(86, 204, 242, 0.16), rgba(124, 77, 255, 0.14));
+            color: #b8f0ff;
+            margin-bottom: 16px;
+        }
+
+        .highlight-card h5,
+        .skill-card h5,
+        .project-card h5,
+        .profile-card h5,
+        .timeline-card h5,
+        .contact-card h5 {
+            font-weight: 700;
+            margin-bottom: 10px;
+        }
+
+        .highlight-card p,
+        .skill-card p,
+        .project-card p,
+        .profile-card p,
+        .timeline-card p,
+        .contact-card p,
+        .timeline-card li {
+            color: var(--muted);
+            line-height: 1.8;
+        }
+
+        .about-card,
+        .skill-card,
+        .project-card,
+        .profile-card,
+        .timeline-card,
+        .contact-card {
+            border-radius: 24px;
+            padding: 28px;
+            background: rgba(255, 255, 255, 0.05);
+            border: 1px solid rgba(255, 255, 255, 0.10);
+            box-shadow: var(--shadow);
+            transition: transform 0.35s ease, border-color 0.35s ease, box-shadow 0.35s ease;
+            height: 100%;
+        }
+
+        .about-card p:last-child {
+            margin-bottom: 0;
+        }
+
+        .stats-row {
+            display: grid;
+            grid-template-columns: repeat(3, 1fr);
+            gap: 18px;
+            margin-top: 24px;
+        }
+
+        .stat-box {
+            border-radius: 18px;
+            padding: 20px;
+            text-align: center;
+            background: rgba(255, 255, 255, 0.04);
+            border: 1px solid rgba(255, 255, 255, 0.08);
+        }
+
+        .stat-box .num {
+            font-size: 2rem;
+            font-weight: 800;
+            margin-bottom: 6px;
+        }
+
+        .stat-box .txt {
+            color: var(--muted);
+        }
+
+        .skill-card {
+            position: relative;
+            overflow: hidden;
+        }
+
+        .skill-card::after {
+            content: "";
+            position: absolute;
+            inset: auto -30px -30px auto;
+            width: 110px;
+            height: 110px;
+            border-radius: 999px;
+            background: radial-gradient(circle, rgba(86, 204, 242, 0.16), transparent 65%);
+        }
+
+        .skill-tags {
+            display: flex;
+            flex-wrap: wrap;
+            gap: 10px;
+            margin-top: 18px;
+        }
+
+        .skill-tags span {
+            padding: 8px 12px;
+            border-radius: 999px;
+            background: rgba(255, 255, 255, 0.06);
+            border: 1px solid rgba(255, 255, 255, 0.08);
+            color: #d8e6ff;
+            font-size: 0.9rem;
+            font-weight: 600;
+        }
+
+        .timeline-wrap {
+            position: relative;
+            max-width: 980px;
+            margin: 0 auto;
+        }
+
+        .timeline-wrap::before {
+            content: "";
+            position: absolute;
+            left: 26px;
+            top: 0;
+            bottom: 0;
+            width: 2px;
+            background: linear-gradient(to bottom, rgba(86, 204, 242, 0.9), rgba(124, 77, 255, 0.3));
         }
 
         .timeline-item {
-            margin-bottom: 2rem;
             position: relative;
+            padding-left: 78px;
+            margin-bottom: 28px;
         }
 
-        .timeline-item::before {
-            content: "";
+        .timeline-dot {
             position: absolute;
-            left: -11px;
-            top: 5px;
-            width: 16px;
-            height: 16px;
-            background: #0d6efd;
+            left: 14px;
+            top: 24px;
+            width: 26px;
+            height: 26px;
             border-radius: 50%;
+            background: linear-gradient(135deg, var(--primary), var(--accent));
+            box-shadow: 0 0 0 8px rgba(86, 204, 242, 0.12);
         }
 
-        .timeline-content {
-            background: #fff;
-            padding: 18px 22px;
-            border-radius: 12px;
-            box-shadow: 0 6px 18px rgba(0, 0, 0, 0.08);
+        .timeline-top {
+            display: flex;
+            justify-content: space-between;
+            gap: 18px;
+            align-items: flex-start;
+            flex-wrap: wrap;
+            margin-bottom: 12px;
         }
 
-        .timeline-content h5 {
-            color: #0d6efd;
+        .timeline-role {
+            font-size: 1.25rem;
+            font-weight: 700;
+            margin-bottom: 4px;
+        }
+
+        .timeline-company {
+            color: #bcd0ef;
             font-weight: 600;
         }
 
-        .timeline-content h6 {
-            font-size: 0.9rem;
-        }
-
         .timeline-date {
-            font-size: 0.9rem;
-            color: #6c757d;
-            font-weight: 500;
+            padding: 8px 14px;
+            border-radius: 999px;
+            background: rgba(255, 255, 255, 0.06);
+            border: 1px solid rgba(255, 255, 255, 0.08);
+            color: #dbeaff;
+            font-size: 0.92rem;
+            font-weight: 600;
+            white-space: nowrap;
         }
 
-        .timeline-content ul {
-            padding-left: 20px;
-            margin-top: 10px;
+        .timeline-card ul {
+            padding-left: 18px;
+            margin-bottom: 0;
         }
 
-        .timeline-content li {
-            margin-bottom: 8px;
+        .timeline-card li {
+            margin-bottom: 10px;
+        }
+
+        .project-card {
+            overflow: hidden;
+            position: relative;
+        }
+
+        .project-image {
+            width: 100%;
+            height: 220px;
+            object-fit: cover;
+            border-radius: 18px;
+            margin-bottom: 20px;
+            border: 1px solid rgba(255, 255, 255, 0.08);
+        }
+
+        .project-meta {
+            display: flex;
+            flex-wrap: wrap;
+            gap: 8px;
+            margin-top: 18px;
+            margin-bottom: 22px;
+        }
+
+        .project-meta span {
+            padding: 8px 12px;
+            border-radius: 999px;
+            background: rgba(255, 255, 255, 0.06);
+            border: 1px solid rgba(255, 255, 255, 0.08);
+            color: #dce6ff;
+            font-size: 0.88rem;
+            font-weight: 600;
+        }
+
+        .project-actions {
+            display: flex;
+            flex-wrap: wrap;
+            gap: 12px;
+        }
+
+        .project-btn {
+            border-radius: 12px;
+            padding: 11px 16px;
+            font-weight: 700;
+            font-size: 0.95rem;
+            transition: 0.3s ease;
+        }
+
+        .project-btn.primary {
+            background: linear-gradient(135deg, var(--primary), #8ce3ff);
+            color: #07111f;
+        }
+
+        .project-btn.secondary {
+            background: rgba(255, 255, 255, 0.05);
+            border: 1px solid rgba(255, 255, 255, 0.10);
+            color: #fff;
+        }
+
+        .project-btn:hover {
+            transform: translateY(-2px);
+            color: inherit;
+        }
+
+        .profile-card,
+        .contact-card {
+            text-align: center;
+        }
+
+        .profile-card a,
+        .contact-card a {
+            color: #dff6ff;
+            font-weight: 600;
+            word-break: break-word;
+        }
+
+        .contact-card small {
+            color: var(--muted);
+            display: block;
+            margin-top: 8px;
+        }
+
+        footer {
+            padding: 26px 0 40px;
+            color: var(--muted);
+        }
+
+        .footer-line {
+            height: 1px;
+            background: linear-gradient(90deg, transparent, rgba(255, 255, 255, 0.12), transparent);
+            margin-bottom: 20px;
+        }
+
+        .reveal {
+            opacity: 0;
+            transform: translateY(30px);
+            transition: opacity 0.8s ease, transform 0.8s ease;
+        }
+
+        .reveal.show {
+            opacity: 1;
+            transform: translateY(0);
+        }
+
+        .reveal.delay-1 {
+            transition-delay: 0.08s;
+        }
+
+        .reveal.delay-2 {
+            transition-delay: 0.16s;
+        }
+
+        .reveal.delay-3 {
+            transition-delay: 0.24s;
+        }
+
+        .reveal.delay-4 {
+            transition-delay: 0.32s;
+        }
+
+        .back-to-top {
+            position: fixed;
+            right: 18px;
+            bottom: 18px;
+            z-index: 1000;
+            width: 46px;
+            height: 46px;
+            border-radius: 14px;
+            border: 1px solid rgba(255, 255, 255, 0.10);
+            background: rgba(8, 20, 38, 0.85);
+            color: white;
+            display: inline-flex;
+            align-items: center;
+            justify-content: center;
+            opacity: 0;
+            transform: translateY(12px);
+            pointer-events: none;
+            transition: 0.3s ease;
+            backdrop-filter: blur(16px);
+        }
+
+        .back-to-top.show {
+            opacity: 1;
+            transform: translateY(0);
+            pointer-events: auto;
+        }
+
+        @media (max-width: 991.98px) {
+            .hero {
+                min-height: auto;
+                padding-bottom: 70px;
+            }
+
+            .highlight-grid,
+            .stats-row,
+            .hero-metrics {
+                grid-template-columns: 1fr 1fr;
+            }
+        }
+
+        @media (max-width: 767.98px) {
+            .section-padding {
+                padding: 80px 0;
+            }
+
+            .highlight-grid,
+            .stats-row,
+            .hero-metrics {
+                grid-template-columns: 1fr;
+            }
+
+            .timeline-wrap::before {
+                left: 16px;
+            }
+
+            .timeline-item {
+                padding-left: 52px;
+            }
+
+            .timeline-dot {
+                left: 4px;
+            }
+
+            .hero-photo {
+                width: 110px;
+                height: 110px;
+            }
         }
     </style>
 </head>
 
 <body>
-    <header>
-        <nav class="navbar navbar-expand-lg navbar-light bg-light">
-            <div class="container">
-                <a class="navbar-brand" href="#">Akash Sheoran</a>
-                <button class="navbar-toggler" type="button" data-toggle="collapse" data-target="#navbarNav"
-                    aria-controls="navbarNav" aria-expanded="false" aria-label="Toggle navigation">
-                    <span class="navbar-toggler-icon"></span>
-                </button>
-                <div class="collapse navbar-collapse" id="navbarNav">
-                    <ul class="navbar-nav ml-auto">
-                        <li class="nav-item">
-                            <a class="nav-link" href="#about">About</a>
-                        </li>
-                        <li class="nav-item">
-                            <a class="nav-link" href="#profiles">Profiles</a>
-                        </li>
-                        <li class="nav-item">
-                            <a class="nav-link" href="#skills">Skills</a>
-                        </li>
-                        <li class="nav-item">
-                            <a class="nav-link" href="#experience">Experience</a>
-                        </li>
-                        <li class="nav-item">
-                            <a class="nav-link" href="#portfolio">Projects</a>
-                        </li>
-                        <li class="nav-item">
-                            <a class="nav-link" href="#contact">Contact</a>
-                        </li>
-                    </ul>
+    <nav class="navbar navbar-expand-lg fixed-top">
+        <div class="container">
+            <a class="navbar-brand" href="#hero">Akash Sheoran</a>
+            <button class="navbar-toggler border-0 shadow-none" type="button" data-bs-toggle="collapse"
+                data-bs-target="#navbarNav" aria-controls="navbarNav" aria-expanded="false"
+                aria-label="Toggle navigation">
+                <span class="navbar-toggler-icon"></span>
+            </button>
+            <div class="collapse navbar-collapse" id="navbarNav">
+                <ul class="navbar-nav ms-auto gap-lg-2">
+                    <li class="nav-item"><a class="nav-link" href="#about">About</a></li>
+                    <li class="nav-item"><a class="nav-link" href="#skills">Skills</a></li>
+                    <li class="nav-item"><a class="nav-link" href="#experience">Experience</a></li>
+                    <li class="nav-item"><a class="nav-link" href="#projects">Projects</a></li>
+                    <li class="nav-item"><a class="nav-link" href="#profiles">Profiles</a></li>
+                    <li class="nav-item"><a class="nav-link" href="#contact">Contact</a></li>
+                </ul>
+            </div>
+        </div>
+    </nav>
+
+    <section id="hero" class="hero">
+        <div class="blob"></div>
+        <div class="grid-overlay"></div>
+        <div class="container position-relative">
+            <div class="row align-items-center g-5">
+                <div class="col-lg-7">
+                    <div class="hero-badge reveal show">
+                        <i class="bi bi-stars"></i>
+                        2+ Years Experience | AWS • Kubernetes • Terraform • GitOps
+                    </div>
+                    <h1 class="reveal show">
+                        Building <span class="gradient-text">production-grade DevOps platforms</span> for speed, scale,
+                        and reliability.
+                    </h1>
+                    <p class="reveal show delay-1">
+                        I am Akash Sheoran, a DevOps Engineer focused on AWS cloud infrastructure, Kubernetes,
+                        Terraform, CI/CD, and GitOps automation. I design scalable delivery pipelines, production-ready
+                        EKS platforms, and observability stacks that help teams deploy faster and operate with
+                        confidence.
+                    </p>
+                    <div class="cta-group reveal show delay-2">
+                        <a href="#projects" class="btn btn-custom btn-custom">
+                            <i class="bi bi-rocket-takeoff"></i>
+                            View Projects
+                        </a>
+                        <a href="#contact" class="btn btn-outline-custom">
+                            <i class="bi bi-send"></i>
+                            Hire Me
+                        </a>
+                    </div>
+                    <div class="quick-tags reveal show delay-3">
+                        <span class="tag">AWS EKS</span>
+                        <span class="tag">Terraform</span>
+                        <span class="tag">Azure DevOps</span>
+                        <span class="tag">ArgoCD</span>
+                        <span class="tag">Prometheus + Grafana</span>
+                        <span class="tag">EFK Stack</span>
+                    </div>
+                </div>
+
+                <div class="col-lg-5">
+                    <div class="hero-card glass reveal show delay-2">
+                        <img src="images/my-photo.png" alt="Akash Sheoran" class="hero-photo">
+                        <div class="mini-label">Current Focus</div>
+                        <h3 class="mb-2">DevOps Engineer</h3>
+                        <p class="mb-0 text-light-emphasis" style="color: var(--muted); line-height: 1.8;">
+                            Deploying secure cloud infrastructure, automating delivery workflows, and improving platform
+                            reliability with modern DevOps tooling.
+                        </p>
+
+                        <div class="hero-metrics">
+                            <div class="metric">
+                                <div class="metric-number counter" data-target="2">0</div>
+                                <div class="metric-label">Years Experience</div>
+                            </div>
+                            <div class="metric">
+                                <div class="metric-number counter" data-target="80">0</div>
+                                <div class="metric-label">Provisioning Time Reduced %</div>
+                            </div>
+                            <div class="metric">
+                                <div class="metric-number counter" data-target="3">0</div>
+                                <div class="metric-label">Release Frequency Improved x</div>
+                            </div>
+                        </div>
+
+                        <div class="floating-card">
+                            <div class="mini-label">Core Stack</div>
+                            <div class="d-flex flex-wrap gap-2">
+                                <span class="tag">Docker</span>
+                                <span class="tag">Kubernetes</span>
+                                <span class="tag">Helm</span>
+                                <span class="tag">Linux</span>
+                            </div>
+                        </div>
+                    </div>
                 </div>
             </div>
-        </nav>
-    </header>
 
-    <section id="hero" class="text-center py-5">
-        <div class="container">
-            <img src="images/my-photo.png" alt="Your profile photo" class="rounded-circle" , width=150, height=150>
-            <h1 class="my-3">Welcome to My Portfolio</h1>
-            <p class="lead">DevOps Engineer who bridges the gap between development and IT operations to streamline and
-                automate software delivery.</p>
+            <div class="highlight-grid reveal delay-3 mt-5">
+                <div class="highlight-card">
+                    <i class="bi bi-cloud-check"></i>
+                    <h5>Cloud Infrastructure</h5>
+                    <p>Production-grade AWS infrastructure using Terraform with scalable networking, IAM, compute,
+                        storage, and Kubernetes foundations.</p>
+                </div>
+                <div class="highlight-card">
+                    <i class="bi bi-diagram-3"></i>
+                    <h5>Container Platforms</h5>
+                    <p>Hands-on experience deploying and operating microservices on Amazon EKS using Helm, GitOps, and
+                        multi-AZ cluster design.</p>
+                </div>
+                <div class="highlight-card">
+                    <i class="bi bi-arrow-repeat"></i>
+                    <h5>CI/CD & GitOps</h5>
+                    <p>Automated build, release, and deployment workflows with Azure DevOps and ArgoCD for faster,
+                        safer, and version-controlled delivery.</p>
+                </div>
+                <div class="highlight-card">
+                    <i class="bi bi-activity"></i>
+                    <h5>Observability</h5>
+                    <p>End-to-end monitoring and logging with Prometheus, Grafana, CloudWatch, and EFK stack for better
+                        alerting and incident response.</p>
+                </div>
+            </div>
         </div>
     </section>
 
-    <section id="about" class="py-5">
+    <section id="about" class="section-padding">
         <div class="container">
-            <h2>About Me</h2>
-            <p>DevOps Engineer with 2+ years of experience
-                in AWS, Kubernetes, and Terraform,
-                specializing in CI/CD and GitOps automation.
-                Built and managed production-grade Amazon
-                EKS infrastructure, automated deployments
-                using Azure DevOps and ArgoCD, and
-                implemented monitoring and logging with
-                Prometheus, Grafana, and EFK. Improved
-                release frequency by 3×, reduced
-                infrastructure provisioning time by 80%, and
-                enabled faster incident resolution through
-                centralized monitoring and logging.</p>
+            <div class="text-center reveal">
+                <h2 class="section-title">About Me</h2>
+                <p class="section-subtitle">
+                    A DevOps Engineer with strong hands-on experience in cloud infrastructure, platform engineering,
+                    deployment automation, observability, and production operations.
+                </p>
+            </div>
+
+            <div class="row g-4 align-items-stretch">
+                <div class="col-lg-7 reveal delay-1">
+                    <div class="about-card">
+                        <p>
+                            I specialize in building and managing AWS, Kubernetes, and Terraform-based environments with
+                            a focus on scalability, automation, and operational excellence. My work includes designing
+                            Amazon EKS infrastructure, standardizing deployments with Helm, and implementing GitOps
+                            workflows using ArgoCD.
+                        </p>
+                        <p>
+                            I have built CI/CD pipelines in Azure DevOps for containerized workloads, improved release
+                            speed, reduced infrastructure setup time, and enabled better visibility through Prometheus,
+                            Grafana, CloudWatch, and EFK. I also have experience supporting production operations,
+                            patching, upgrades, rollback planning, and cloud migration initiatives.
+                        </p>
+                    </div>
+                </div>
+                <div class="col-lg-5 reveal delay-2">
+                    <div class="about-card h-100">
+                        <div class="mini-label">Impact Snapshot</div>
+                        <div class="stats-row">
+                            <div class="stat-box">
+                                <div class="num counter" data-target="80">0</div>
+                                <div class="txt">Faster environment setup</div>
+                            </div>
+                            <div class="stat-box">
+                                <div class="num counter" data-target="3">0</div>
+                                <div class="txt">Better release velocity</div>
+                            </div>
+                            <div class="stat-box">
+                                <div class="num counter" data-target="100">0</div>
+                                <div class="txt">Production-first mindset</div>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+            </div>
         </div>
     </section>
 
-    <section id="skills" class="py-5 bg-light">
+    <section id="skills" class="section-padding">
         <div class="container">
-            <h2 class="text-center mb-4">Technical Skills</h2>
+            <div class="text-center reveal">
+                <h2 class="section-title">Technical Skills</h2>
+                <p class="section-subtitle">
+                    A modern DevOps stack across cloud, containers, infrastructure automation, deployment pipelines,
+                    monitoring, and Linux operations.
+                </p>
+            </div>
+
             <div class="row g-4">
-                <div class="col-md-6 col-lg-4">
-                    <div class="card h-100 shadow-sm border-0">
-                        <div class="card-body">
-                            <h5 class="card-title">Cloud</h5>
-                            <p class="card-text">AWS (EKS, EC2, S3, IAM, VPC, ALB, Route53, EFS, EBS, etc.)</p>
+                <div class="col-md-6 col-xl-4 reveal delay-1">
+                    <div class="skill-card">
+                        <div class="skill-icon"><i class="bi bi-cloud"></i></div>
+                        <h5>Cloud</h5>
+                        <p>AWS services used in real environments for infrastructure, networking, storage, access
+                            control, and Kubernetes platforms.</p>
+                        <div class="skill-tags">
+                            <span>EKS</span><span>EC2</span><span>S3</span><span>IAM</span><span>VPC</span><span>ALB</span><span>Route53</span><span>EFS</span><span>EBS</span>
                         </div>
                     </div>
                 </div>
-
-                <div class="col-md-6 col-lg-4">
-                    <div class="card h-100 shadow-sm border-0">
-                        <div class="card-body">
-                            <h5 class="card-title">Containers &amp; Orchestration</h5>
-                            <p class="card-text">Docker, Kubernetes</p>
+                <div class="col-md-6 col-xl-4 reveal delay-2">
+                    <div class="skill-card">
+                        <div class="skill-icon"><i class="bi bi-box-seam"></i></div>
+                        <h5>Containers & Orchestration</h5>
+                        <p>Containerized application delivery and orchestration for scalable, resilient, and
+                            production-ready workloads.</p>
+                        <div class="skill-tags">
+                            <span>Docker</span><span>Kubernetes</span><span>Helm</span>
                         </div>
                     </div>
                 </div>
-
-                <div class="col-md-6 col-lg-4">
-                    <div class="card h-100 shadow-sm border-0">
-                        <div class="card-body">
-                            <h5 class="card-title">Infrastructure as Code</h5>
-                            <p class="card-text">Terraform</p>
+                <div class="col-md-6 col-xl-4 reveal delay-3">
+                    <div class="skill-card">
+                        <div class="skill-icon"><i class="bi bi-code-square"></i></div>
+                        <h5>Infrastructure as Code</h5>
+                        <p>Automated provisioning of repeatable, modular, and maintainable cloud infrastructure using
+                            code-driven workflows.</p>
+                        <div class="skill-tags">
+                            <span>Terraform</span>
                         </div>
                     </div>
                 </div>
-
-                <div class="col-md-6 col-lg-4">
-                    <div class="card h-100 shadow-sm border-0">
-                        <div class="card-body">
-                            <h5 class="card-title">CI/CD</h5>
-                            <p class="card-text">Azure DevOps Pipelines</p>
+                <div class="col-md-6 col-xl-4 reveal delay-1">
+                    <div class="skill-card">
+                        <div class="skill-icon"><i class="bi bi-git"></i></div>
+                        <h5>CI/CD & GitOps</h5>
+                        <p>Pipeline automation and Git-driven deployments that improve consistency, release speed,
+                            traceability, and rollback capability.</p>
+                        <div class="skill-tags">
+                            <span>Azure DevOps</span><span>ArgoCD</span><span>Git</span><span>GitHub</span>
                         </div>
                     </div>
                 </div>
-
-                <div class="col-md-6 col-lg-4">
-                    <div class="card h-100 shadow-sm border-0">
-                        <div class="card-body">
-                            <h5 class="card-title">GitOps</h5>
-                            <p class="card-text">ArgoCD, Git, GitHub</p>
+                <div class="col-md-6 col-xl-4 reveal delay-2">
+                    <div class="skill-card">
+                        <div class="skill-icon"><i class="bi bi-bar-chart-line"></i></div>
+                        <h5>Monitoring & Logging</h5>
+                        <p>Observability stacks for metrics, dashboards, alerting, and centralized log collection to
+                            support reliable operations.</p>
+                        <div class="skill-tags">
+                            <span>Prometheus</span><span>Grafana</span><span>CloudWatch</span><span>Elasticsearch</span><span>Fluent
+                                Bit</span><span>Kibana</span>
                         </div>
                     </div>
                 </div>
-
-                <div class="col-md-6 col-lg-4">
-                    <div class="card h-100 shadow-sm border-0">
-                        <div class="card-body">
-                            <h5 class="card-title">Monitoring</h5>
-                            <p class="card-text">Prometheus, Grafana, CloudWatch</p>
-                        </div>
-                    </div>
-                </div>
-
-                <div class="col-md-6 col-lg-4">
-                    <div class="card h-100 shadow-sm border-0">
-                        <div class="card-body">
-                            <h5 class="card-title">Logging</h5>
-                            <p class="card-text">EFK Stack (Elasticsearch, Fluent Bit, Kibana)</p>
-                        </div>
-                    </div>
-                </div>
-
-                <div class="col-md-6 col-lg-4">
-                    <div class="card h-100 shadow-sm border-0">
-                        <div class="card-body">
-                            <h5 class="card-title">Configuration Management</h5>
-                            <p class="card-text">Ansible</p>
-                        </div>
-                    </div>
-                </div>
-
-                <div class="col-md-6 col-lg-4">
-                    <div class="card h-100 shadow-sm border-0">
-                        <div class="card-body">
-                            <h5 class="card-title">Scripting</h5>
-                            <p class="card-text">Bash, Python</p>
-                        </div>
-                    </div>
-                </div>
-
-                <div class="col-md-6 col-lg-4">
-                    <div class="card h-100 shadow-sm border-0">
-                        <div class="card-body">
-                            <h5 class="card-title">Package Management</h5>
-                            <p class="card-text">Helm</p>
-                        </div>
-                    </div>
-                </div>
-
-                <div class="col-md-6 col-lg-4">
-                    <div class="card h-100 shadow-sm border-0">
-                        <div class="card-body">
-                            <h5 class="card-title">Operating System</h5>
-                            <p class="card-text">Linux</p>
+                <div class="col-md-6 col-xl-4 reveal delay-3">
+                    <div class="skill-card">
+                        <div class="skill-icon"><i class="bi bi-terminal"></i></div>
+                        <h5>Automation & OS</h5>
+                        <p>System-level automation, configuration management, scripting, and operational workflows on
+                            Linux-based environments.</p>
+                        <div class="skill-tags">
+                            <span>Ansible</span><span>Bash</span><span>Python</span><span>Linux</span>
                         </div>
                     </div>
                 </div>
@@ -252,115 +1023,260 @@
         </div>
     </section>
 
-    <section id="experience" class="py-5">
+    <section id="experience" class="section-padding">
         <div class="container">
-            <h2 class="text-center mb-5">Work Experience</h2>
+            <div class="text-center reveal">
+                <h2 class="section-title">Work Experience</h2>
+                <p class="section-subtitle">
+                    Experience focused on production infrastructure, Kubernetes operations, deployment automation,
+                    observability, and cloud migration.
+                </p>
+            </div>
 
-            <div class="timeline">
-
+            <div class="timeline-wrap reveal delay-1">
                 <div class="timeline-item">
-                    <div class="timeline-content">
-
-                        <div class="d-flex justify-content-between align-items-center mb-2">
-                            <h5 class="mb-0">DevOps Engineer</h5>
-                            <span class="timeline-date">Dec 2023 – Present</span>
+                    <div class="timeline-dot"></div>
+                    <div class="timeline-card">
+                        <div class="timeline-top">
+                            <div>
+                                <div class="timeline-role">DevOps Engineer</div>
+                                <div class="timeline-company">Amiti Software Technologies</div>
+                            </div>
+                            <div class="timeline-date">Dec 2023 – Present</div>
                         </div>
-
-                        <h6 class="text-muted">Amiti Software Technologies</h6>
-
                         <ul>
-                            <li>Managed AWS infrastructure (VPC, EC2, IAM, S3, EKS) using Terraform, reducing
-                                environment setup time by ~80%.</li>
-                            <li>Provisioned and maintained Kubernetes (EKS) clusters across multiple AZs for production
-                                and staging.</li>
-                            <li>Deployed microservices using Helm charts, enabling standardized deployments and quick
-                                rollbacks.</li>
-                            <li>Built CI/CD pipelines using Azure DevOps for automated Docker builds and Kubernetes
-                                deployments.</li>
-                            <li>Implemented GitOps using ArgoCD with Helm for version-controlled deployments.</li>
-                            <li>Set up monitoring & logging using Prometheus, Grafana, and EFK stack with alerting.</li>
-                            <li>Executed production maintenance (patching, upgrades, rollback) with minimal downtime.
-                            </li>
-                            <li>Migrated workloads from VMware Cloud (VMC) to AWS EKS with containerization and CI/CD.
-                            </li>
+                            <li>Managed AWS infrastructure including VPC, EC2, IAM, S3, and EKS using Terraform,
+                                reducing environment setup time by around 80%.</li>
+                            <li>Provisioned and maintained production and staging EKS clusters across multiple
+                                Availability Zones.</li>
+                            <li>Deployed microservices with Helm charts, improving deployment standardization and
+                                rollback efficiency.</li>
+                            <li>Built Azure DevOps CI/CD pipelines for Docker image builds and Kubernetes deployments,
+                                increasing release frequency.</li>
+                            <li>Implemented GitOps workflows using ArgoCD and Helm for automated and version-controlled
+                                application delivery.</li>
+                            <li>Set up observability using Prometheus, Grafana, CloudWatch, and EFK with alerting for
+                                faster issue detection and troubleshooting.</li>
+                            <li>Planned and executed production maintenance windows, patching, upgrades, and rollback
+                                activities with minimal downtime.</li>
+                            <li>Migrated workloads from VMware Cloud to AWS EKS through containerization, CI/CD
+                                automation, and GitOps adoption.</li>
                         </ul>
-
-                    </div>
-                </div>
-
-            </div>
-        </div>
-    </section>
-
-    <section id="profiles" class="py-5">
-        <div class="container">
-            <h2>Online Profiles</h2>
-            <ul class="list-inline">
-                <li class="list-item mb-2">
-                    <i class="fa fa-github fa-lg"></i> <a href="https://github.com/akash66sheoran"
-                        target="_blank">GitHub</a>
-                </li>
-                <li class="list-item mb-2">
-                    <i class="fa fa-linkedin fa-lg"></i> <a href="https://www.linkedin.com/in/akash-sheoran"
-                        target="_blank">LinkedIn</a>
-                </li>
-            </ul>
-        </div>
-    </section>
-
-    <section id="portfolio" class="py-5">
-        <div class="container">
-            <h2 class="mb-4">Projects</h2>
-            <div class="row">
-                <div class="col-md-4">
-                    <div class="card mb-4">
-                        <img src="images/terraform-eks.png" class="card-img-top" alt="Project 2">
-                        <div class="card-body">
-                            <h5 class="card-title">Infrastructure as Code (IaC) Project</h5>
-                            <p class="card-text">Architected and deployed a production-ready Kubernetes platform on AWS
-                                EKS using Terraform, emphasizing scalability, security, and modular Infrastructure as
-                                Code practices. This project simulates a real-world enterprise-grade cloud environment
-                                used in modern DevOps teams
-                            </p>
-                        </div>
-                    </div>
-                </div>
-                <div class="col-md-4">
-                    <div class="card mb-4">
-                        <img src="images/end-to-end-devops-project.png" class="card-img-top" alt="Project 2">
-                        <div class="card-body">
-                            <h5 class="card-title">Production-Ready 3-Tier Application on AWS EKS</h5>
-                            <p class="card-text">End-to-end DevOps project deploying a three-tier React, Node.js, and
-                                MongoDB application on AWS EKS. Features Terraform-based IaC, Azure devops CI/CD
-                                pipelines,
-                                ArgoCD GitOps, Helm package manager, monitoring with Prometheus and Grafana, and
-                                observability with EFK stack</p>
-                        </div>
                     </div>
                 </div>
             </div>
         </div>
     </section>
 
-    <section id="contact" class="py-5">
+    <section id="projects" class="section-padding">
         <div class="container">
-            <h2>Contact Me</h2>
-            <p>If you'd like to get in touch, feel free to contact me:</p>
-            <p><a href="mailto:akash66sheoran@gmail.com">akash66sheoran@gmail.com</a></p>
-            <p><a href="tel:+916239982589">+916239982589</a></p>
+            <div class="text-center reveal">
+                <h2 class="section-title">Featured Projects</h2>
+                <p class="section-subtitle">
+                    Portfolio projects that demonstrate platform engineering, cloud automation, GitOps deployment
+                    workflows, and full DevOps implementation.
+                </p>
+            </div>
+
+            <div class="row g-4">
+                <div class="col-lg-6 reveal delay-1">
+                    <div class="project-card">
+                        <img src="images/terraform-eks.png" class="project-image" alt="Terraform EKS project">
+                        <div class="project-icon"><i class="bi bi-diagram-2"></i></div>
+                        <h5>Infrastructure as Code Platform on AWS EKS</h5>
+                        <p>
+                            Architected and deployed a production-ready Kubernetes platform on AWS EKS using Terraform
+                            with emphasis on scalability, security, reusable modules, and enterprise-style
+                            infrastructure design.
+                        </p>
+                        <div class="project-meta">
+                            <span>Terraform</span>
+                            <span>AWS</span>
+                            <span>EKS</span>
+                            <span>IAM</span>
+                            <span>VPC</span>
+                        </div>
+                        <div class="project-actions">
+                            <a href="#contact" class="project-btn primary">Ask for Walkthrough</a>
+                        </div>
+                    </div>
+                </div>
+
+                <div class="col-lg-6 reveal delay-2">
+                    <div class="project-card">
+                        <img src="images/end-to-end-devops-project.png" class="project-image"
+                            alt="3-tier application on EKS">
+                        <div class="project-icon"><i class="bi bi-stack"></i></div>
+                        <h5>Production-Ready 3-Tier Application on AWS EKS</h5>
+                        <p>
+                            End-to-end DevOps project for a React, Node.js, and MongoDB application on AWS EKS with
+                            Terraform-based IaC, Azure DevOps CI/CD, ArgoCD GitOps, Helm packaging, Prometheus, Grafana,
+                            and EFK observability.
+                        </p>
+                        <div class="project-meta">
+                            <span>React</span>
+                            <span>Node.js</span>
+                            <span>MongoDB</span>
+                            <span>ArgoCD</span>
+                            <span>Helm</span>
+                        </div>
+                        <div class="project-actions">
+                            <a href="#contact" class="project-btn primary">Discuss Project</a>
+                        </div>
+                    </div>
+                </div>
+            </div>
         </div>
     </section>
 
-    <footer class="bg-dark text-light text-center py-3">
+    <section id="profiles" class="section-padding">
         <div class="container">
-            <p>&copy; 2023 Akash</p>
+            <div class="text-center reveal">
+                <h2 class="section-title">Online Profiles</h2>
+                <p class="section-subtitle">
+                    Explore my public work, professional background, and project activity.
+                </p>
+            </div>
+
+            <div class="row g-4 justify-content-center">
+                <div class="col-md-6 col-lg-4 reveal delay-1">
+                    <div class="profile-card">
+                        <i class="bi bi-github"></i>
+                        <h5>GitHub</h5>
+                        <p>Browse repositories, infrastructure code, Kubernetes work, and DevOps projects.</p>
+                        <a href="https://github.com/akash66sheoran" target="_blank"
+                            rel="noopener noreferrer">github.com/akash66sheoran</a>
+                    </div>
+                </div>
+                <div class="col-md-6 col-lg-4 reveal delay-2">
+                    <div class="profile-card">
+                        <i class="bi bi-linkedin"></i>
+                        <h5>LinkedIn</h5>
+                        <p>See my professional journey, experience, and networking profile.</p>
+                        <a href="https://www.linkedin.com/in/akash-sheoran" target="_blank"
+                            rel="noopener noreferrer">linkedin.com/in/akash-sheoran</a>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <section id="contact" class="section-padding">
+        <div class="container">
+            <div class="text-center reveal">
+                <h2 class="section-title">Let’s Build Something Reliable</h2>
+                <p class="section-subtitle">
+                    I’m open to DevOps, cloud, platform engineering, and infrastructure automation opportunities.
+                </p>
+            </div>
+
+            <div class="row g-4 justify-content-center">
+                <div class="col-md-6 col-lg-4 reveal delay-1">
+                    <div class="contact-card">
+                        <div class="contact-icon"><i class="bi bi-envelope"></i></div>
+                        <h5>Email</h5>
+                        <a href="mailto:akash66sheoran@gmail.com">akash66sheoran@gmail.com</a>
+                        <small>Best for opportunities and collaboration</small>
+                    </div>
+                </div>
+                <div class="col-md-6 col-lg-4 reveal delay-2">
+                    <div class="contact-card">
+                        <div class="contact-icon"><i class="bi bi-telephone"></i></div>
+                        <h5>Phone</h5>
+                        <a href="tel:+916239982589">+91 62399 82589</a>
+                        <small>Available for professional discussion</small>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <footer>
+        <div class="container text-center">
+            <div class="footer-line"></div>
+            <p class="mb-0">© <span id="year"></span> Akash Sheoran. Built for GitHub Pages.</p>
         </div>
     </footer>
 
-    <!-- Add Bootstrap JS scripts at the end of the body -->
-    <script src="https://code.jquery.com/jquery-3.5.1.slim.min.js"></script>
-    <script src="https://cdn.jsdelivr.net/npm/@popperjs/core@2.11.6/dist/umd/popper.min.js"></script>
-    <script src="https://stackpath.bootstrapcdn.com/bootstrap/4.5.2/js/bootstrap.min.js"></script>
+    <a href="#hero" class="back-to-top" id="backToTop" aria-label="Back to top">
+        <i class="bi bi-arrow-up"></i>
+    </a>
+
+    <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.3/dist/js/bootstrap.bundle.min.js"></script>
+    <script>
+        const navbar = document.querySelector('.navbar');
+        const backToTop = document.getElementById('backToTop');
+        const navLinks = document.querySelectorAll('.nav-link');
+        const sections = document.querySelectorAll('section[id]');
+        const revealEls = document.querySelectorAll('.reveal');
+        const counters = document.querySelectorAll('.counter');
+
+        window.addEventListener('scroll', () => {
+            if (window.scrollY > 20) {
+                navbar.classList.add('scrolled');
+            } else {
+                navbar.classList.remove('scrolled');
+            }
+
+            if (window.scrollY > 500) {
+                backToTop.classList.add('show');
+            } else {
+                backToTop.classList.remove('show');
+            }
+
+            let current = '';
+            sections.forEach(section => {
+                const sectionTop = section.offsetTop - 120;
+                if (scrollY >= sectionTop) {
+                    current = section.getAttribute('id');
+                }
+            });
+
+            navLinks.forEach(link => {
+                link.classList.remove('active');
+                if (link.getAttribute('href') === '#' + current) {
+                    link.classList.add('active');
+                }
+            });
+        });
+
+        const observer = new IntersectionObserver((entries) => {
+            entries.forEach(entry => {
+                if (entry.isIntersecting) {
+                    entry.target.classList.add('show');
+                }
+            });
+        }, { threshold: 0.15 });
+
+        revealEls.forEach(el => observer.observe(el));
+
+        const counterObserver = new IntersectionObserver((entries, obs) => {
+            entries.forEach(entry => {
+                if (!entry.isIntersecting) return;
+                const counter = entry.target;
+                const target = Number(counter.dataset.target);
+                const duration = 1400;
+                const stepTime = Math.max(20, Math.floor(duration / target));
+                let current = 0;
+                const increment = Math.max(1, Math.ceil(target / 50));
+
+                const timer = setInterval(() => {
+                    current += increment;
+                    if (current >= target) {
+                        current = target;
+                        clearInterval(timer);
+                    }
+                    counter.textContent = current;
+                }, stepTime);
+
+                obs.unobserve(counter);
+            });
+        }, { threshold: 0.45 });
+
+        counters.forEach(counter => counterObserver.observe(counter));
+
+        document.getElementById('year').textContent = new Date().getFullYear();
+    </script>
 </body>
 
 </html>
